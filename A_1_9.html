@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <style>
+      .timer {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 100px;
+        font-size: 20px;
+      }
+
+      .unit {
+        background: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      body {
+        background-image: url(download.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        bac
+        background-position: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timer">
+      <div class="unit"><span id="days">00</span><br />Days</div>
+      <div class="unit"><span id="hours">00</span><br />Hours</div>
+      <div class="unit"><span id="minutes">00</span><br />Minutes</div>
+      <div class="unit"><span id="seconds">00</span><br />Seconds</div>
+    </div>
+
+    <script>
+      function countdown() {
+        const eventDate = new Date("2024-12-31").getTime();
+        const now = new Date().getTime();
+        const gap = eventDate - now;
+
+        const days = Math.floor(gap / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((gap % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+      }
+
+      setInterval(countdown, 1000);
+    </script>
+  </body>
+</html>

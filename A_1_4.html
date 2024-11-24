@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Listing</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f8f8f8;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .product {
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .product img {
+        max-width: 100%;
+        border-radius: 8px;
+        transition: transform 0.2s;
+      }
+
+      .product img:hover {
+        transform: scale(1.05);
+      }
+
+      .product h3 {
+        margin: 10px 0;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .product p {
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-grid">
+      <div class="product">
+        <img src="1.jpg" alt="Product" />
+        <h3>Product 1</h3>
+        <p>$10.00</p>
+      </div>
+      <div class="product">
+        <img src="2.jpg" alt="Product" />
+        <h3>Product 2</h3>
+        <p>$20.00</p>
+      </div>
+      <div class="product">
+        <img src="3.jpg" alt="Product" />
+        <h3>Product 3</h3>
+        <p>$30.00</p>
+      </div>
+    </div>
+  </body>
+</html>

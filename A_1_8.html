@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <style>
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+      }
+
+      .gallery img {
+        width: 100%;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.1);
+      }
+
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .lightbox img {
+        width: 80%;
+        max-width: 500px;
+      }
+
+      .lightbox span {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <img src="1.jpg" alt="Image" />
+      <img src="2.jpg" alt="Image" />
+      <img src="3.jpg" alt="Image" />
+    </div>
+
+    <div class="lightbox">
+      <span>&times;</span>
+      <img src="" alt="Large Image" />
+    </div>
+
+    <script>
+      const gallery = document.querySelectorAll(".gallery img");
+      const lightbox = document.querySelector(".lightbox");
+      const lightboxImg = document.querySelector(".lightbox img");
+      const close = document.querySelector(".lightbox span");
+
+      gallery.forEach((img) => {
+        img.addEventListener("click", () => {
+          lightbox.style.display = "flex";
+          lightboxImg.src = img.src;
+        });
+      });
+
+      close.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
